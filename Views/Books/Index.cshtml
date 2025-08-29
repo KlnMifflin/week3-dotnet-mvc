@@ -1,0 +1,38 @@
+﻿@model List<Book>
+
+<h2>Books</h2>
+
+<form asp-action="Create" method="get" style="display:inline;">
+    <button type="submit" class="action-button edit">Add New Book</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Year</td>
+                <td>@book.Description</td>
+                <td>
+                    <form asp-action="Edit" asp-route-id="@book.Id" method="get" style="display:inline;">
+                        <button type="submit" class="action-button edit">Edit</button>
+                    </form>
+                    <form asp-action="Delete" asp-route-id="@book.Id" method="post" style="display:inline;">
+                        <button type="submit" class="action-button delete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

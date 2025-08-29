@@ -1,0 +1,23 @@
+﻿@model BookLibraryAPP.Models.Book
+
+<h2>Add New Book</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+    </div>
+    <div>
+        <label asp-for="Author"></label>
+        <input asp-for="Author" />
+    </div>
+    <div>
+        <label asp-for="Year"></label>
+        <input asp-for="Year" type="number" />
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+    <button type="submit">Add to Library</button>
+</form>
